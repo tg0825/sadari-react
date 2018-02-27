@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class Add extends React.Component {
+class MemberAdd extends React.Component {
     state = {
         name: '',
-        team: 'dev'
+        team: ''
     };
 
     handleKeyPress = (e) => {
@@ -14,7 +14,8 @@ class Add extends React.Component {
     }
 
     handleClick = () => {
-        this.props.onClick(this.state)
+        if (!this.state.name && !this.state.team) return;
+        this.props.onClick(this.state);
     }
 
     handleChange = (e) => {
@@ -30,9 +31,10 @@ class Add extends React.Component {
                     <input onChange={this.handleKeyPress} className="input" type="text"/>
                 </div>
                 <div>
-                    <select value={this.state.team} name="" onChange={this.handleChange}>
-                        <option value="dev">개발팀</option>
-                        <option value="scouter">작가영입팀</option>
+                    <select name="" onChange={this.handleChange}>
+                        <option hidden>팀을 선택해 주세요.</option>
+                        <option value="개발팀">개발팀</option>
+                        <option value="작가영입팀">작가영입팀</option>
                     </select>
                 </div>
                 <div>
@@ -43,8 +45,8 @@ class Add extends React.Component {
     }
 }
 
-Add.propTypes = {
+MemberAdd.propTypes = {
     memberList: PropTypes.array
 };
 
-export default Add;
+export default MemberAdd;

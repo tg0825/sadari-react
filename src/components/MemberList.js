@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class Member extends React.Component {
+class MemberList extends React.Component {
     render () {
         const mapToMemberList = (data) => {
             return data.map((v, i) => {
@@ -30,8 +30,8 @@ class Member extends React.Component {
     }
 }
 
-Member.propTypes = {
+MemberList.propTypes = {
     memberList: PropTypes.array,
 }
 
-export default Member;
+export default MemberList;

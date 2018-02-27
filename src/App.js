@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Member from './components/Member';
-import Add from './components/Add';
+import Head from './components/Head';
+import MemberList from './components/MemberList';
+import MemberAdd from './components/MemberAdd';
+import SadariSelect from './components/SadariSelect';
+import Result from './components/Result';
 import './App.css';
 
 class App extends Component {
@@ -17,8 +20,13 @@ class App extends Component {
             {
                 name: '최재훈',
                 team: '작가영입'
+            },
+            {
+                name: '이원희',
+                team: '운영'
             }
-        ]
+        ],
+        resultData: []
     }
 
     handleClick = (member) => {
@@ -27,14 +35,28 @@ class App extends Component {
         })
     }
 
-    render() {
+    handleCreate = (result) => {
+        this.setState({
+            resultData: result
+        })
+    }
+
+    render () {
         return (
-            <div>
-                <Member memberList={this.state.memberData} />
-                <Add
+            <div className="sadari wrap">
+                <Head />
+                <MemberList memberList={this.state.memberData} />
+
+                <MemberAdd
                     memberList={this.state.memberData}
                     onClick={this.handleClick}
                 />
+
+                <SadariSelect
+                    memberList={this.state.memberData}
+                    onClick={this.handleCreate}
+                />
+                <Result resultData={this.state.resultData}/>
             </div>
         );
     }
