@@ -41,11 +41,13 @@ class App extends Component {
         })
     }
 
-    handleRemove = () => {
-        console.log(1);
-        // this.setState({
-        //
-        // });
+    handleRemove = (e) => {
+        const key = e.target.dataset.key;
+        let newArray = this.state.memberData.slice();
+        newArray.splice(key, 1);
+        this.setState({
+            memberData: newArray
+        });
     }
 
     render () {
