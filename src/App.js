@@ -41,11 +41,21 @@ class App extends Component {
         })
     }
 
+    handleRemove = () => {
+        console.log(1);
+        // this.setState({
+        //
+        // });
+    }
+
     render () {
         return (
             <div className="sadari wrap">
                 <Head />
-                <MemberList memberList={this.state.memberData} />
+                <MemberList
+                    memberList={this.state.memberData}
+                    onRemove={this.handleRemove}
+                />
 
                 <MemberAdd
                     memberList={this.state.memberData}
