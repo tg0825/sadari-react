@@ -1,5 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import './SadariSelect.scss';
+import PropTypes from 'prop-types';
 
 class SadariSelect extends React.Component {
     shuffle (a) {
@@ -13,7 +14,7 @@ class SadariSelect extends React.Component {
     }
 
     handleClick () {
-        const memberListClone = this.props.memberList.slice();
+        const memberListClone = this.props.memberData.slice();
         this.shuffle(memberListClone);
         this.props.onClick(memberListClone);
     }

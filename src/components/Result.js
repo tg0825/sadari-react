@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './Result.scss';
 
 class Result extends React.Component {
     render () {
@@ -19,7 +20,7 @@ class Result extends React.Component {
         }
 
         return (
-            <div>
+            <div className="result">
                  {resultMap(this.props.resultData)}
             </div>
         )

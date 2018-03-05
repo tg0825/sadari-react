@@ -1,0 +1,23 @@
+.MemberAdd {
+    .input-block {
+        input,
+        select,
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            padding: 5px;
+            margin-top: 10px;
+            background: #fff;
+            height: 35px;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #fe7373;
+            border-color: #fe7373;
+            color: #fff;
+        }
+    }
+}

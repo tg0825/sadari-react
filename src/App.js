@@ -4,7 +4,7 @@ import MemberList from './components/MemberList';
 import MemberAdd from './components/MemberAdd';
 import SadariSelect from './components/SadariSelect';
 import Result from './components/Result';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
     state = {
@@ -41,10 +41,11 @@ class App extends Component {
         })
     }
 
-    handleRemove = (e) => {
-        const key = e.target.dataset.key;
-        let newArray = this.state.memberData.slice();
-        newArray.splice(key, 1);
+    handleException = (e) => {
+        const key = e.currentTarget.dataset.key;
+        const newArray = JSON.parse(JSON.stringify(this.state.memberData));
+        newArray[key].exception = newArray[key].exception ? false : true;
+
         this.setState({
             memberData: newArray
         });
@@ -55,17 +56,17 @@ class App extends Component {
             <div className="sadari wrap">
                 <Head />
                 <MemberList
-                    memberList={this.state.memberData}
-                    onRemove={this.handleRemove}
+                    memberData={this.state.memberData}
+                    onException={this.handleException}
                 />
 
                 <MemberAdd
-                    memberList={this.state.memberData}
+                    memberData={this.state.memberData}
                     onClick={this.handleClick}
                 />
 
                 <SadariSelect
-                    memberList={this.state.memberData}
+                    memberData={this.state.memberData}
                     onClick={this.handleCreate}
                 />
                 <Result resultData={this.state.resultData}/>
