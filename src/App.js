@@ -29,6 +29,28 @@ class App extends Component {
         resultData: []
     }
 
+    // 돔 처리 전
+    componentWillMount() {
+        const memberData = localStorage.memberData;
+
+        if (memberData) {
+            this.setState({
+                memberData: JSON.parse(memberData)
+            })
+        } else {
+            // localStorage.contactData = JSON.stringify(this.state.contactData);
+            localStorage.memberData = JSON.stringify(this.state.memberData);
+        }
+    }
+
+    // 업데이트 후
+    componentDidUpdate(prevProps, prevState) {
+        // 이전 값과 지금 값을 비교
+        if (JSON.stringify(prevState.memberData) != JSON.stringify(this.state.memberData)) {
+            localStorage.memberData = JSON.stringify(this.state.memberData);
+        }
+    }
+
     handleClick = (member) => {
         this.setState({
             memberData: [...this.state.memberData, member]
