@@ -35,7 +35,7 @@ class App extends Component {
         })
     }
 
-    handleCreate = (result) => {
+    clickGame = (result) => {
         this.setState({
             resultData: result
         })
@@ -67,7 +67,7 @@ class App extends Component {
 
                 <SadariSelect
                     memberData={this.state.memberData}
-                    onClick={this.handleCreate}
+                    onClick={this.clickGame}
                 />
                 <Result resultData={this.state.resultData}/>
             </div>

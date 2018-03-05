@@ -14,7 +14,9 @@ class SadariSelect extends React.Component {
     }
 
     handleClick () {
-        const memberListClone = this.props.memberData.slice();
+        const memberListClone = this.props.memberData.filter((v) => {
+            return v.exception ? false : true;
+        });
         this.shuffle(memberListClone);
         this.props.onClick(memberListClone);
     }
